@@ -23,10 +23,8 @@ export default function Create() {
         })).catch((e) => {
             console.log(e);
         })
-        console.log("posted");
     }
     return (
-        <div className="container m-5">
             <div className="row">
                 <div className="col-12">
                     <form onSubmit={handleForm}>
@@ -43,6 +41,5 @@ export default function Create() {
                     </form>
                 </div>
             </div>
-        </div>
     );
 }
