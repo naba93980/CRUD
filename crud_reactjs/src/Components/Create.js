@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 export default function Create() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('')
+    const navigate = useNavigate();
     const getName = (e) => {
         setName(e.target.value);
     }
@@ -16,11 +18,13 @@ export default function Create() {
         e.preventDefault();
         const header = { "Access-Control-Allow-Origin": "*" };
 
-        (axios.post('https://633af5ed471b8c39557973b2.mockapi.io/crud_reactjs', {
+        axios.post('https://633af5ed471b8c39557973b2.mockapi.io/crud_reactjs', {
             name,
             email,
             header,
-        })).catch((e) => {
+        }).then(() => {
+            navigate('/read');
+        }).catch((e) => {
             console.log(e);
         })
     }
