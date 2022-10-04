@@ -9,7 +9,7 @@ export default function Row(props) {
         <td>{name}</td>
         <td>{email}</td>
         <td>
-          <button className="bg-primary border-white" onClick={()=>updateData(objectId,name,email)}>Edit</button>
+          <button className="bg-warning border-white" onClick={()=>updateData(objectId,name,email)}>Edit</button>
         </td>
         <td>
           <button className="bg-danger border-white" onClick={()=>deleteData(objectId)}>Delete</button>
