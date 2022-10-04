@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import Row from "./Row";
 
 export default function Read() {
@@ -34,23 +34,27 @@ export default function Read() {
 
   return (
     <>
-      <table className="table">
-        <thead>
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
-          </tr>
-        </thead>
-        <tbody>
+  <h3>Read</h3>
+  <table className="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
           {data.map((ele,index) => {
             const { id, name, email } = ele;
             return <Row key={id} objectId={id} renderId={++index} name={name} email={email} deleteData={deleteData} updateData={updateData} />
           })}
         </tbody>
       </table>
-    </>
-  );
+  <button type="submit" className="btn btn-primary">
+    <Link to={"/"} className="text-decoration-none text-light">Create</Link>
+  </button>
+</>
+);
 }
